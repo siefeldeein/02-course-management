@@ -73,6 +73,7 @@ public class Course {
     public void setEnrollments(List<Enrollment> enrollments) {
         this.enrollments = enrollments;
     }
+
     public void addEnrollment(Enrollment enrollment) {
         enrollments.add(enrollment);
         enrollment.setCourse(this);
