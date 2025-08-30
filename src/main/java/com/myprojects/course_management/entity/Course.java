@@ -25,6 +25,10 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Enrollment> enrollments;
 
+    @JoinColumn(name = "instructor_id")
+    @ManyToOne
+    private Instructor instructor;
+
     public Course() {
     }
 
@@ -74,6 +78,14 @@ public class Course {
         this.enrollments = enrollments;
     }
 
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
+
     public void addEnrollment(Enrollment enrollment) {
         enrollments.add(enrollment);
         enrollment.setCourse(this);
@@ -83,6 +95,7 @@ public class Course {
         enrollments.remove(enrollment);
         enrollment.setCourse(null);
     }
+
 
     @Override
     public String toString() {

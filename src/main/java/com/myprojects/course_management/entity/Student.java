@@ -27,6 +27,8 @@ public class Student {
     @JsonManagedReference("student-enrollment")
     private List<Enrollment> enrollments;
 
+
+
     public Student() {
     }
 

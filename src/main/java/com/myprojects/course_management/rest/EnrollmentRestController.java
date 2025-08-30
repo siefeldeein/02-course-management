@@ -41,9 +41,12 @@ public class EnrollmentRestController {
     public Enrollment addEnrollment(@RequestBody Enrollment enrollment ){
 
         System.out.println(enrollment.getStudent());
-        Student tempStudent=studentService.findByStudentId(enrollment.getStudent().getId());
-        Course tempCourse= courseService.findByCourseId(enrollment.getCourse().getId());
+
+        Student tempStudent = studentService.findByStudentId(enrollment.getStudent().getId());
+        Course tempCourse = courseService.findByCourseId(enrollment.getCourse().getId());
+
         enrollment.setNotes(tempStudent.getFirstName() + " enrolled in " + tempCourse.getTitle() );
+
         enrollmentService.addEnrollment(enrollment);
 
         return enrollment;

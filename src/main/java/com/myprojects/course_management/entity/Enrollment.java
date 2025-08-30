@@ -27,7 +27,7 @@ public class Enrollment {
     @JoinColumn(name = "student_id")
     @JsonIgnoreProperties("enrollments")
     private Student student;
-/// // yes i changed
+
     @ManyToOne
     @JoinColumn(name = "course_id")
     @JsonIgnoreProperties("enrollments")
